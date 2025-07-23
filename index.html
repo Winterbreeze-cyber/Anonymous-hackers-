@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hackers Collective</title>
+  <link rel="stylesheet" href="star.css" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#33ff33" />
+</head>
+<body>
+  <canvas id="matrix"></canvas>
+
+  <div id="login-screen" class="center">
+    <div class="typewriter" id="typewriter"></div>
+
+    <div class="login-box">
+      <div>
+        <button onclick="switchAuth('login')">Login</button>
+        <button onclick="switchAuth('register')">Register</button>
+      </div>
+      <div id="auth-form">
+        <input type="text" id="handle" placeholder="Handle" />
+        <input type="password" id="password" placeholder="Password" />
+        <button onclick="authAction()">Submit</button>
+      </div>
+      <p id="error-message"></p>
+    </div>
+  </div>
+
+  <div id="dashboard" class="hidden">
+    <h2>
+      <img id="avatar" class="avatar" /> Welcome, <span id="user-handle"></span>
+    </h2>
+
+    <div class="section">
+      <h3>🧠 Message Board</h3>
+      <ul id="messages"></ul>
+      <input type="text" id="new-message" placeholder="Post a message..." />
+      <button onclick="postMessage()">Send</button>
+    </div>
+
+    <div class="section">
+      <h3>🛠 Tools</h3>
+      <ul>
+        <li><button onclick="launchTool('brute')">[+] Brute Force Simulator</button></li>
+        <li><button onclick="launchTool('hash')">[+] Hash Cracker</button></li>
+        <li><button onclick="launchTool('ports')">[+] Port Scanner</button></li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h3>📡 Peer Chat</h3>
+      <label for="peer-handle">Send to:</label>
+      <select id="peer-handle"></select>
+      <input type="text" id="peer-message" placeholder="Message..." />
+      <button onclick="sendPeerMessage()">Send</button>
+      <ul id="peer-thread"></ul>
+    </div>
+
+    <div id="tool-output" class="section hidden">
+      <h3>🔧 Tool Terminal</h3>
+      <pre id="tool-terminal"></pre>
+      <button onclick="closeTool()">Close</button>
+    </div>
+  </div>
+
+  <div id="terminal">
+    <div id="terminal-output"></div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+  </html>
